@@ -1,6 +1,6 @@
 export default {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("carowners", {
+    return queryInterface.createTable("Carowners", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -48,6 +48,6 @@ export default {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("carowners");
+    return queryInterface.dropTable("Carowners");
   },
 };

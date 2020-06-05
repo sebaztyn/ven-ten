@@ -1,6 +1,6 @@
 export default (sequelize, DataTypes) => {
-  const carowners = sequelize.define(
-    "carowners",
+  const Carowners = sequelize.define(
+    "Carowners",
     {
       first_name: DataTypes.STRING,
       last_name: DataTypes.STRING,
@@ -15,8 +15,8 @@ export default (sequelize, DataTypes) => {
     },
     {},
   );
-  carowners.associate = (models) => {
+  Carowners.associate = (models) => {
     // associations can be defined here
   };
-  return carowners;
+  return Carowners;
 };
