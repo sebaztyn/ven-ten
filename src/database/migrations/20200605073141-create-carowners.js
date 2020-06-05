@@ -1,54 +1,53 @@
-'use strict';
-module.exports = {
+export default {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('CarOwners', {
+    return queryInterface.createTable("carowners", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       first_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       last_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       country: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       car_model: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       car_model_year: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       car_color: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       gender: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       job_title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       bio: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('CarOwners');
-  }
+    return queryInterface.dropTable("carowners");
+  },
 };
