@@ -1,45 +1,26 @@
+/* eslint-disable import/extensions */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable import/first */
 /* eslint-disable quotes */
-import createError from "http-errors";
-import express from "express";
-import cookieParser from "cookie-parser";
-import logger from "morgan";
+require("@babel/register");
+
+import errorHandler from "errorhandler";
 import "dotenv/config";
+import express from "express";
 import cors from "cors";
-import errorhandler from "errorhandler";
+import morgan from "morgan";
 import methodOverride from "method-override";
-import allRoutes from "../routes";
-
-import indexRouter from "../routes/index.js";
-import usersRouter from "../routes/users.js";
-
-const app = express();
-app.use(logger("dev"));
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-
-// catch 404 and forward to error handler
-app.use((req, res, next) => {
-  next(createError(404));
-});
-
-// error handler
-app.use((err, req, res, next) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render("error");
-});
+import allRoutes from "./routes";
 
 const isProduction = process.env.NODE_ENV === "production";
+
+// Create global app object
+const app = express();
+
+app.use(cors());
+
+// Normal express config defaults
+app.use(morgan("dev"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -47,16 +28,14 @@ app.use(express.json());
 // Documentation
 app.use(methodOverride());
 
-app.use(express.static(`${__dirname}/public`));
-
 if (!isProduction) {
-  app.use(errorhandler());
+  app.use(errorHandler());
 }
 app.use(allRoutes);
 
 app.get("*", (req, res) =>
   res.status(200).send({
-    message: "Welcome to Korapay Backend Technical Challenge",
+    message: "Welcome to Ven-Ten Challenge",
   }),
 );
 // / catch 404 and forward to error handler
@@ -67,7 +46,6 @@ app.use((req, res, next) => {
 });
 
 // / error handlers
-
 // development error handler
 // will print stacktrace
 if (!isProduction) {
@@ -103,5 +81,3 @@ const server = app.listen(process.env.PORT || port, () => {
 });
 
 export default server;
-
-//export default app;

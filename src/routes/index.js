@@ -1,10 +1,8 @@
 import express from "express";
+import carRoutes from "./cars.route.js";
 
 const router = express.Router();
 
-/* GET home page. */
-router.get("/", (req, res, next) => {
-  res.render("index", { title: "Express" });
-});
+router.use("/cars", carRoutes);
 
 export default router;
