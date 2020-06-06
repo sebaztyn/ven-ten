@@ -11,7 +11,7 @@ const developmentDB = process.env.DB_DEV;
 const productionDB = process.env.DB_PROD;
 const appRoot = `${process.env.PWD}/src/assets/car_owners_data.csv`;
 const queryString = `LOAD DATA LOCAL INFILE '${appRoot}'
-INTO TABLE Carowners FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;`;
+INTO TABLE carowners FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;`;
 
 const pool = mysql.createPool({
   host:
