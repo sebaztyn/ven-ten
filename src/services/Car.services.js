@@ -18,8 +18,8 @@ class CarServices {
    * @param {*} body
    * @param {*} responseObj
    * @param {*} nextFunction
-   * @memberof UserServices
-   * @returns {Object} returns a new user
+   * @memberof CarServices
+   * @returns {Array} returns an array of cars
    */
   static async getCars(queries, responseObj, nextFunction) {
     try {
