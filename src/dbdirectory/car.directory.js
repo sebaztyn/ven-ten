@@ -1,6 +1,6 @@
 import models from "../models/index.js";
 
-const { Carowners } = models;
+const { carowners } = models;
 
 /**
  *
@@ -19,7 +19,7 @@ class CarsDBDirectory {
    */
   static async findByParameters(params, nextFunction) {
     try {
-      const userDetails = await Carowners.findAll({
+      const userDetails = await carowners.findAll({
         where: { ...params },
         raw: true,
       });

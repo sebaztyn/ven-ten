@@ -1,6 +1,5 @@
-"use strict";
-module.exports = (sequelize, DataTypes) => {
-  const Carowners = sequelize.define(
+export default (sequelize, DataTypes) => {
+  const carowners = sequelize.define(
     "carowners",
     {
       first_name: DataTypes.STRING,
@@ -14,10 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       job_title: DataTypes.STRING,
       bio: DataTypes.TEXT,
     },
-    {},
+    { timestamps: false },
   );
-  Carowners.associate = function(models) {
+  carowners.associate = (models) => {
     // associations can be defined here
   };
-  return Carowners;
+  return carowners;
 };
