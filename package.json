@@ -22,10 +22,6 @@
     "reverse:recent": "sequelize db:migrate:undo",
     "reverse:test": "cross-env NODE_ENV=test sequelize db:migrate:undo:all",
     "refreshdb": "npm run dropDB && npm run createDB && npm run reverse && npm run migration && npm run seed",
-    "coveralls-coverage": "coveralls < lcov.info",
-    "coverage": "nyc npm test && npm run generate-lcov && npm run coveralls-coverage && npm run codeclimate-coverage",
-    "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
-    "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
     "refreshdb:test": "cross-env NODE_ENV=test npm run refreshdb",
     "test": "npm run refreshdb:test && cross-env NODE_ENV=test nyc --require @babel/register ---reporter=html --reporter=text mocha src/test/**.test.js --timeout 20000 --exit"
   },
