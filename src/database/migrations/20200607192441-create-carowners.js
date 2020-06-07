@@ -1,5 +1,4 @@
-"use strict";
-module.exports = {
+export default {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable("carowners", {
       id: {
@@ -24,7 +23,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       car_model_year: {
-        type: Sequelize.STRING,
+        type: Sequelize.SMALLINT,
       },
       car_color: {
         type: Sequelize.STRING,

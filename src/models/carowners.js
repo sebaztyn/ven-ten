@@ -7,7 +7,7 @@ export default (sequelize, DataTypes) => {
       email: DataTypes.STRING,
       country: DataTypes.STRING,
       car_model: DataTypes.STRING,
-      car_model_year: DataTypes.STRING,
+      car_model_year: DataTypes.SMALLINT,
       car_color: DataTypes.STRING,
       gender: DataTypes.STRING,
       job_title: DataTypes.STRING,

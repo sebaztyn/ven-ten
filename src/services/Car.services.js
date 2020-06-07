@@ -24,6 +24,13 @@ class CarServices {
   static async getCars(queries, responseObj, nextFunction) {
     try {
       const fetchCars = await findByParameters(queries, nextFunction);
+      if (!fetchCars) {
+        return responseObj.status(400).json({
+          status: "error",
+          statusCode: 400,
+          message: "Check queries and try again",
+        });
+      }
       if (Array.isArray(fetchCars) && !fetchCars.length) {
         return responseObj.status(200).json({
           status: "success",
