@@ -1,6 +1,6 @@
 export default {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Carowners", {
+    return queryInterface.createTable("carowners", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -23,7 +23,7 @@ export default {
         type: Sequelize.STRING,
       },
       car_model_year: {
-        type: Sequelize.STRING,
+        type: Sequelize.SMALLINT,
       },
       car_color: {
         type: Sequelize.STRING,
@@ -37,17 +37,9 @@ export default {
       bio: {
         type: Sequelize.TEXT,
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Carowners");
+    return queryInterface.dropTable("carowners");
   },
 };

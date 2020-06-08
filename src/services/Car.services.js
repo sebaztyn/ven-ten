@@ -18,12 +18,19 @@ class CarServices {
    * @param {*} body
    * @param {*} responseObj
    * @param {*} nextFunction
-   * @memberof UserServices
-   * @returns {Object} returns a new user
+   * @memberof CarServices
+   * @returns {Array} returns an array of cars
    */
   static async getCars(queries, responseObj, nextFunction) {
     try {
       const fetchCars = await findByParameters(queries, nextFunction);
+      if (!fetchCars) {
+        return responseObj.status(400).json({
+          status: "error",
+          statusCode: 400,
+          message: "Check queries and try again",
+        });
+      }
       if (Array.isArray(fetchCars) && !fetchCars.length) {
         return responseObj.status(200).json({
           status: "success",
